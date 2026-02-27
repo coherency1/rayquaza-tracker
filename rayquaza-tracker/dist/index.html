@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rayquaza Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Pokémon TCG · English Prints</div>
+  <h1>Rayquaza</h1>
+  <div class="stats">
+    <div class="stat"><span class="stat-num" id="s-owned">0</span><span class="stat-label">Owned</span></div>
+    <div class="stat"><span class="stat-num" id="s-total">0</span><span class="stat-label">Total</span></div>
+    <div class="stat"><span class="stat-num" id="s-pct">0%</span><span class="stat-label">Complete</span></div>
+    <div class="stat"><span class="stat-num" id="s-value">—</span><span class="stat-label">Value</span></div>
+  </div>
+</header>
+
+<div class="progress-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="search" placeholder="Search…" oninput="render()">
+  </div>
+  <div class="filters">
+    <button class="f-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="f-btn" onclick="setFilter('missing',this)">Missing</button>
+    <button class="f-btn" onclick="setFilter('owned',this)">Owned</button>
+  </div>
+  <button class="refresh-btn" id="refresh-btn" onclick="fetchAllPrices()">
+    <span class="spin">↻</span> Prices
+  </button>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
