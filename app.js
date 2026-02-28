@@ -1,9 +1,15 @@
 // ---------------------------------------------------------------------------
 // Price provider config
 // 'static'  → reads prices.json from the repo (free, update manually before a show)
-// 'scrydex' → live Scrydex API (see feature/scrydex-integration branch)
+// 'scrydex' → live Scrydex API — requires SCRYDEX_API_KEY + SCRYDEX_TEAM_ID below
 // ---------------------------------------------------------------------------
-const PRICE_PROVIDER = 'static';
+const PRICE_PROVIDER = 'scrydex';
+
+// TODO: populate before deploying with Scrydex plan active.
+// Keep these out of source control in production — use a build-time env inject
+// or a config file listed in .gitignore.
+const SCRYDEX_API_KEY  = '';  // X-Api-Key header
+const SCRYDEX_TEAM_ID  = '';  // X-Team-ID header
 
 const CARDS=[{id:"pop1-3",name:"Rayquaza",set:"POP Series 1",num:"3/17",era:"Early Era (2003–2007)",type:"base",apiId:"pop1-3"},{id:"exa-22",name:"Rayquaza",set:"EX Deoxys",num:"22/107",era:"Early Era (2003–2007)",type:"base",apiId:"exa-22"},{id:"emed-9",name:"Rayquaza",set:"EX Emerald",num:"9/106",era:"Early Era (2003–2007)",type:"base",apiId:"emed-9"},{id:"exds-13",name:"Rayquaza δ",set:"EX Delta Species",num:"13/113",era:"Early Era (2003–2007)",type:"base",apiId:"exds-13"},{id:"exhp-16",name:"Rayquaza δ (Water)",set:"EX Holon Phantoms",num:"16/110",era:"Early Era (2003–2007)",type:"base",apiId:"exhp-16"},{id:"exhp-26",name:"Rayquaza δ (Fire)",set:"EX Holon Phantoms",num:"26/110",era:"Early Era (2003–2007)",type:"base",apiId:"exhp-26"},{id:"la-14",name:"Rayquaza",set:"Legends Awakened",num:"14/146",era:"Diamond & Pearl Era",type:"base",apiId:"la-14"},{id:"col-20",name:"Rayquaza",set:"Call of Legends",num:"20/95",era:"HGSS Era",type:"base",apiId:"col-20"},{id:"dex-128",name:"Rayquaza",set:"Dragons Exalted",num:"128/124",era:"BW Era",type:"base",apiId:"dex-128"},{id:"xyp-64",name:"Rayquaza",set:"XY Black Star Promos",num:"XY64",era:"XY Era",type:"base",apiId:"xyp-XY64"},{id:"xyp-141",name:"Rayquaza",set:"XY Black Star Promos",num:"XY141",era:"XY Era",type:"base",apiId:"xyp-XY141"},{id:"sm2-106",name:"Rayquaza",set:"Guardians Rising",num:"106/145",era:"SM Era",type:"base",apiId:"sm2-106"},{id:"swshp-29",name:"Rayquaza",set:"SWSH Black Star Promos",num:"SWSH029",era:"SWSH Era",type:"base",apiId:"swshp-SWSH029"},{id:"swsh4-138",name:"Rayquaza",set:"Vivid Voltage",num:"138/185",era:"SWSH Era",type:"base",apiId:"swsh4-138"},{id:"ex2-97",name:"Rayquaza ex",set:"EX Dragon",num:"97/97",era:"Old ex Era",type:"ex-old",apiId:"ex2-97"},{id:"exa-102",name:"Rayquaza ex",set:"EX Deoxys",num:"102/107",era:"Old ex Era",type:"ex-old",apiId:"exa-102"},{id:"exdf-97",name:"Rayquaza ex δ",set:"EX Dragon Frontiers",num:"97/101",era:"Old ex Era",type:"ex-old",apiId:"exdf-97"},{id:"np-39",name:"Rayquaza ex",set:"Nintendo Black Star Promos",num:"039",era:"Old ex Era",type:"ex-old",apiId:"np-39"},{id:"exa-107",name:"Rayquaza ☆",set:"EX Deoxys",num:"107/107",era:"Old ex Era",type:"star",apiId:"exa-107"},{id:"pl3-8",name:"Rayquaza C",set:"Supreme Victors",num:"8/147",era:"Platinum Era",type:"sp",apiId:"pl3-8"},{id:"pl3-146",name:"Rayquaza C LV.X",set:"Supreme Victors",num:"146/147",era:"Platinum Era",type:"sp",apiId:"pl3-146"},{id:"ud-89",name:"Rayquaza & Deoxys LEGEND (Top)",set:"Undaunted",num:"89/90",era:"HGSS Era",type:"legend",apiId:"ud-89"},{id:"ud-90",name:"Rayquaza & Deoxys LEGEND (Bottom)",set:"Undaunted",num:"90/90",era:"HGSS Era",type:"legend",apiId:"ud-90"},{id:"dex-85",name:"Rayquaza-EX",set:"Dragons Exalted",num:"85/124",era:"BW Era",type:"ex",apiId:"dex-85"},{id:"bwp-47",name:"Rayquaza-EX",set:"BW Black Star Promos",num:"BW47",era:"BW Era",type:"ex",apiId:"bwp-BW47"},{id:"xy6-60",name:"Rayquaza-EX (Dragon)",set:"Roaring Skies",num:"60/108",era:"XY Era",type:"ex",apiId:"xy6-60"},{id:"xy6-75",name:"Rayquaza-EX (Colorless)",set:"Roaring Skies",num:"75/108",era:"XY Era",type:"ex",apiId:"xy6-75"},{id:"xyp-66",name:"Rayquaza-EX",set:"XY Black Star Promos",num:"XY66",era:"XY Era",type:"ex",apiId:"xyp-XY66"},{id:"xyp-69",name:"Shiny Rayquaza-EX",set:"XY Black Star Promos",num:"XY69",era:"XY Era",type:"ex",apiId:"xyp-XY69"},{id:"xy6-61",name:"M Rayquaza-EX (Dragon)",set:"Roaring Skies",num:"61/108",era:"XY Era",type:"mega",apiId:"xy6-61"},{id:"xy6-76",name:"M Rayquaza-EX (Colorless)",set:"Roaring Skies",num:"76/108",era:"XY Era",type:"mega",apiId:"xy6-76"},{id:"xy7-98",name:"M Rayquaza-EX (Shiny)",set:"Ancient Origins",num:"98/98",era:"XY Era",type:"mega",apiId:"xy7-98"},{id:"cel-76",name:"M Rayquaza-EX (Celebrations)",set:"Celebrations",num:"76/108",era:"SWSH Era",type:"mega",apiId:"cel-76"},{id:"sm35-56",name:"Shining Rayquaza",set:"Shining Legends",num:"56/73",era:"SM Era",type:"shining",apiId:"sm35-56"},{id:"sm7-109",name:"Rayquaza-GX",set:"Celestial Storm",num:"109/168",era:"SM Era",type:"gx",apiId:"sm7-109"},{id:"swsh7-110",name:"Rayquaza V",set:"Evolving Skies",num:"110/203",era:"SWSH Era",type:"v",apiId:"swsh7-110"},{id:"swsh7-193",name:"Rayquaza V (Full Art)",set:"Evolving Skies",num:"193/203",era:"SWSH Era",type:"v",apiId:"swsh7-193"},{id:"swshp-147",name:"Rayquaza V",set:"SWSH Black Star Promos",num:"SWSH147",era:"SWSH Era",type:"v",apiId:"swshp-SWSH147"},{id:"swsh12-100",name:"Rayquaza V",set:"Crown Zenith",num:"100/159",era:"SWSH Era",type:"v",apiId:"swsh12pt5-100"},{id:"swsh7-111",name:"Rayquaza VMAX",set:"Evolving Skies",num:"111/203",era:"SWSH Era",type:"vmax",apiId:"swsh7-111"},{id:"swsh11-tg20",name:"Rayquaza VMAX (TG)",set:"Silver Tempest",num:"TG20/TG30",era:"SWSH Era",type:"vmax",apiId:"swsh11-tg20"},{id:"swsh12-101",name:"Rayquaza VMAX",set:"Crown Zenith",num:"101/159",era:"SWSH Era",type:"vmax",apiId:"swsh12pt5-101"},{id:"swsh12-102",name:"Rayquaza VMAX (Alt Art)",set:"Crown Zenith",num:"102/159",era:"SWSH Era",type:"vmax",apiId:"swsh12pt5-102"}],TYPE_LABEL={base:"Base","ex-old":"ex (vintage)",ex:"EX",mega:"Mega EX",gx:"GX",v:"V",vmax:"VMAX",star:"Pokémon ☆",legend:"LEGEND",sp:"C / LV.X",shining:"Shining"};
 
@@ -44,13 +50,75 @@ async function fetchAllPricesStatic() {
 }
 
 // ---------------------------------------------------------------------------
-// Live provider hook — implemented in feature/scrydex-integration.
-// This stub keeps the call-site identical so the merge is a one-liner swap.
+// Scrydex provider
+// Docs: https://scrydex.com/docs/pokemon/cards
+// Endpoint: GET https://api.scrydex.com/pokemon/v1/cards/:id?include=prices
+// Auth headers: X-Api-Key, X-Team-ID
+// Card IDs are the same format as pokemontcg.io (e.g. "swsh7-110")
 // ---------------------------------------------------------------------------
+async function fetchCardScrydex(apiId) {
+  try {
+    const res = await fetch(`https://api.scrydex.com/pokemon/v1/cards/${apiId}?include=prices`, {
+      headers: {
+        'X-Api-Key': SCRYDEX_API_KEY,
+        'X-Team-ID': SCRYDEX_TEAM_ID,
+      }
+    });
+    if (!res.ok) return null;
+    return (await res.json()).data || null;
+  } catch { return null; }
+}
+
+function mapScrydexCard(card) {
+  // Price path: confirm exact structure once API key is in hand.
+  // Scrydex returns raw pricing — checking the same priority as pokemontcg.io:
+  // holofoil → normal → 1stEditionHolofoil → reverseHolofoil
+  const p = card?.prices?.tcgplayer;
+  const market = p?.holofoil?.market
+    ?? p?.normal?.market
+    ?? p?.['1stEditionHolofoil']?.market
+    ?? p?.reverseHolofoil?.market
+    ?? null;
+
+  // Images: Scrydex returns an array — grab the first front-facing small image
+  const imgObj = card?.images?.find(i => i.type === 'front') || card?.images?.[0];
+  const imageUrl = imgObj?.small || null;
+
+  // TCGPlayer URL may live at card.tcgplayer?.url or inside the prices block
+  const tcgUrl = card?.tcgplayer?.url || card?.prices?.tcgplayer?.url || null;
+
+  return { market, imageUrl, tcgUrl };
+}
+
 async function fetchAllPricesLive() {
-  // Replaced by Scrydex implementation on feature/scrydex-integration.
-  // Keeping this stub so fetchAllPrices() routes cleanly when provider is set.
-  showToast('No live provider configured');
+  if (!SCRYDEX_API_KEY || !SCRYDEX_TEAM_ID) {
+    CARDS.forEach(c => { prices[c.id] = { state: 'error' }; });
+    saveState(); updateStats(); render();
+    showToast('⚠ Scrydex keys not set');
+    return;
+  }
+
+  for (const c of CARDS) {
+    const raw = await fetchCardScrydex(c.apiId);
+    if (raw) {
+      const { market, imageUrl, tcgUrl } = mapScrydexCard(raw);
+      prices[c.id] = { market, url: tcgUrl, state: 'done' };
+      if (imageUrl) images[c.id] = imageUrl;
+    } else {
+      prices[c.id] = { state: 'error' };
+    }
+
+    // Update tile in place as each card resolves
+    const priceEl = document.querySelector(`[data-id="${c.id}"] .price-val`);
+    const imgEl   = document.querySelector(`[data-id="${c.id}"] .card-img`);
+    if (priceEl) updatePriceEl(priceEl, c);
+    if (imgEl && images[c.id]) imgEl.src = images[c.id];
+    updateStats();
+
+    await new Promise(r => setTimeout(r, 80)); // stay well under rate limit
+  }
+
+  saveState();
 }
 
 async function fetchAllPrices(){
